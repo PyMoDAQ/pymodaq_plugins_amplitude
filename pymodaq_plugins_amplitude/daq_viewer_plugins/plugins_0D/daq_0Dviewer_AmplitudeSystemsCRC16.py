@@ -5,7 +5,7 @@ Created on Thu Jun 14 15:14:54 2018
 @author: Weber Sébastien
 @email: seba.weber@gmail.com
 """
-from PyQt5.QtCore import pyqtSignal, QTimer, QThread
+from qtpy.QtCore import Signal, QTimer, QThread
 from easydict import EasyDict as edict
 from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo, DataFromPlugins, set_logger, get_module_name
 from pymodaq.daq_viewer.utility_classes import DAQ_Viewer_base, comon_parameters
@@ -21,7 +21,7 @@ class DAQ_0DViewer_AmplitudeSystemsCRC16(DAQ_Viewer_base):
         dict(id=0, name='Frequency PP', read_command=0x30, write_command=0x30, reply=4, unit='kHz',
              divider=1000, readonly=False, value=-1),
     """
-    data_grabed_signal = pyqtSignal(list)
+    data_grabed_signal = Signal(list)
 
     params = comon_parameters+[
                 {'title': 'COM port:','name': 'com_port', 'type': 'list',
