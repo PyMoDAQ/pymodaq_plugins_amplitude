@@ -25,7 +25,7 @@ class DAQ_0DViewer_AmplitudeSystemsCRC16(DAQ_Viewer_base):
 
     params = comon_parameters+[
                 {'title': 'COM port:','name': 'com_port', 'type': 'list',
-                 'values': AmplitudeSystemsCRC16.get_ressources()},
+                 'limits': AmplitudeSystemsCRC16.get_ressources()},
                 {'title': 'Timeout:', 'name': 'timeout', 'type': 'int', 'value': -1},
                 {'title': 'Serial number:', 'name': 'serial_number', 'type': 'int', 'value': 0},
                 {'title': 'Version:', 'name': 'version', 'type': 'str', 'value': ''},
