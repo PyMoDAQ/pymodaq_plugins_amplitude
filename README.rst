@@ -9,8 +9,8 @@ pymodaq_plugins_amplitude (Amplitude Lasers)
    :target: https://pymodaq.readthedocs.io/en/stable/?badge=latest
    :alt: Documentation Status
 
-.. image:: https://github.com/CEMES-CNRS/pymodaq_plugins_amplitude/workflows/Upload%20Python%20Package/badge.svg
-    :target: https://github.com/CEMES-CNRS/pymodaq_plugins_amplitude
+.. image:: https://github.com/PyMoDAQ/pymodaq_plugins_amplitude/workflows/Upload%20Python%20Package/badge.svg
+    :target: https://github.com/PyMoDAQ/pymodaq_plugins_amplitude
 
 This repository contains a set of PyMoDAQ plugins for Amplitude Systems Lasers
 
