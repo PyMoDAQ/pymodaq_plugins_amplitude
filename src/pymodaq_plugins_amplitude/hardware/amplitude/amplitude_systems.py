@@ -9,9 +9,9 @@ crcmod package: pip install crcmod (used to certify the message send and receive
 from serial import Serial
 from serial.tools.list_ports import comports
 import crcmod
+from ... import set_logger
+logger = set_logger('amplitude')
 
-from pymodaq.daq_utils import daq_utils as utils
-logger = utils.set_logger(utils.get_module_name(__file__))
 
 class AmplitudeSystemsCRC16:
 
