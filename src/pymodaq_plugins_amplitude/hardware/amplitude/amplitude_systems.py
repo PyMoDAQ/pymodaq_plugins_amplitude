@@ -10,6 +10,7 @@ from serial import Serial
 from serial.tools.list_ports import comports
 import crcmod
 from ... import set_logger
+from pymodaq.daq_utils import daq_utils as utils
 logger = set_logger('amplitude')
 
 
