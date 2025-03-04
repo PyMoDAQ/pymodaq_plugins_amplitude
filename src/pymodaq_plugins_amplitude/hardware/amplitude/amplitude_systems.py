@@ -10,7 +10,7 @@ from serial import Serial
 from serial.tools.list_ports import comports
 import crcmod
 from ... import set_logger
-from pymodaq.daq_utils import daq_utils as utils
+from pymodaq_utils.utils import find_dict_in_list_from_key_val
 logger = set_logger('amplitude')
 
 
@@ -160,10 +160,10 @@ class AmplitudeSystemsCRC16:
         self._controller.timeout = to / 1000
 
     def get_laser(self):
-        return bool(utils.find_dict_in_list_from_key_val(self.status, 'id', 17)['value'])
+        return bool(find_dict_in_list_from_key_val(self.status, 'id', 17)['value'])
 
     def get_shutter(self):
-        return bool(utils.find_dict_in_list_from_key_val(self.status, 'id', 20)['value'])
+        return bool(find_dict_in_list_from_key_val(self.status, 'id', 20)['value'])
 
     def set_laser(self, status):
         if status:
@@ -231,11 +231,11 @@ class AmplitudeSystemsCRC16:
         return status_changed
 
     def get_diag_from_name(self, name):
-        diag = utils.find_dict_in_list_from_key_val(self.diagnostics, 'name', name)
+        diag = find_dict_in_list_from_key_val(self.diagnostics, 'name', name)
         return self.get_diag(diag)
 
     def get_diag_from_id(self, diag_id):
-        diag = utils.find_dict_in_list_from_key_val(self.diagnostics, 'id', diag_id)
+        diag = find_dict_in_list_from_key_val(self.diagnostics, 'id', diag_id)
         return self.get_diag(diag)
 
     def get_diag(self, diag):
@@ -248,7 +248,7 @@ class AmplitudeSystemsCRC16:
         return data, diag
 
     def set_diag(self, diag_id, value):
-        diag = utils.find_dict_in_list_from_key_val(self.diagnostics, 'id', diag_id)
+        diag = find_dict_in_list_from_key_val(self.diagnostics, 'id', diag_id)
         reply = None
         if diag is not None:
             if not diag['readonly']:
@@ -260,7 +260,7 @@ class AmplitudeSystemsCRC16:
         return reply
 
     def set_actuator(self, actuator_id):
-        act = utils.find_dict_in_list_from_key_val(self.actuators, 'id', actuator_id)
+        act = find_dict_in_list_from_key_val(self.actuators, 'id', actuator_id)
         reply = None
         if act is not None:
             ret = self._write_command([0x43, act['command']])
